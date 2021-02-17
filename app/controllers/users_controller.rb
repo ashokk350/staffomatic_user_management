@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
+    params[:user].merge!(archived_by: current_user.id)
     status = user_params[:archived] ? User.statuses[:archived] : User.statuses[:un_archived]
 
     if user

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_02_16_184040) do
 
-  create_table "archive_user_histories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "archive_user_histories", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "archived_by"
     t.boolean "archived"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_184040) do
     t.index ["user_id"], name: "index_archive_user_histories_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false

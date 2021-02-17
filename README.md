@@ -115,3 +115,26 @@ $ curl --header \
         --header "Content-Type: application/json" \
         http://localhost:3189/users
 ```
+
+### Archive User
+##### (PUT /users)
+
+```bash
+$curl --request PUT --header \
+        "Authentication: Bearer JWT_TOKEN" \
+        --header "Content-Type: application/json" \
+        http://localhost:3189/users/:id --data \
+        '{"user": { archived": true }'
+```
+
+Note - Pass user 'id' to archive or un-archive user.
+
+Code Explanation -
+
+1. I have added archived(boolean) attribute in user table to check whether user archived or not.
+1. I have created 'archive_user_history' table to track user archived history.
+
+Open Points -
+
+1. Can user archive or un-archive self? (Not taken care in code)
+2. If authenticated user archive any user, will that user be archived for other users or not? (I have implemented based on "User will be archived for other users also.")
